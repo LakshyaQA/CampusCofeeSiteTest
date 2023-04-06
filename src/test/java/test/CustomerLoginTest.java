@@ -6,12 +6,14 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pageobject.CustomerLoginPage;
 import pageobject.HomePage;
+import pageobject.MyAccountPage;
 import testcase.WebTest;
 
 public class CustomerLoginTest extends WebTest {
 
     public HomePage homePage;
     public CustomerLoginPage customerLoginPage;
+    public MyAccountPage myAccountPage;
 
     CustomerLoginTest() { //why called or used
         super();
@@ -22,6 +24,7 @@ public class CustomerLoginTest extends WebTest {
     public void beforeMethod(){ //defined method
         homePage = new HomePage();
         customerLoginPage = new CustomerLoginPage();
+        myAccountPage = new MyAccountPage();
     }
 
     @Test
@@ -29,7 +32,8 @@ public class CustomerLoginTest extends WebTest {
         SoftAssert softAssert = new SoftAssert();//use of it
         homePage.clickOnSignInBtn(); //kha se aya bhi tu???
         customerLoginPage.login(prop.getProperty("email"),prop.getProperty("pass"));
-        softAssert.assertEquals("","","title must match");
+        softAssert.assertEquals(myAccountPage.textOfElement(),"Welcome, lakshya sharma!","title must match for element1");
+        softAssert.assertEquals(myAccountPage.textOfElement2(),"My Account","title must match for element2");
         softAssert.assertAll();
     }
 
