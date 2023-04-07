@@ -17,8 +17,8 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class WebTest {
-    public static WebDriver driver;
-    public static Properties prop;
+    public static WebDriver driver;   //globally declared
+    public static Properties prop;  //interface in prop
 
     public WebTest() {
         //try catch defines fie input
@@ -30,7 +30,6 @@ public class WebTest {
             e.printStackTrace();
         } catch (IOException e) { //why we used? maybe to handle exception????
             e.printStackTrace();
-
         }
     }
 
