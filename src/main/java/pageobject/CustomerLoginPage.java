@@ -14,7 +14,7 @@ public class CustomerLoginPage extends WebTest {
     @FindBy(id = "pass")
     WebElement passTextBox;
 
-    @FindBy(xpath = "//span[text()='Sign In']")
+    @FindBy(xpath = "(//span[contains(text(),'Sign In')])[1]")
     WebElement signInBtn;
 
     //for multiple web element list

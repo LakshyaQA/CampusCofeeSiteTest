@@ -20,8 +20,8 @@ public class CustomerLoginTest extends WebTest {
     }
 
     @BeforeMethod
-    initialization();//called initi method
     public void beforeMethod(){ //defined method
+        initialization();//called initi method
         homePage = new HomePage();
         customerLoginPage = new CustomerLoginPage();
         myAccountPage = new MyAccountPage();
@@ -31,7 +31,7 @@ public class CustomerLoginTest extends WebTest {
     public void verifySignInWithValidEmail(){
         SoftAssert softAssert = new SoftAssert();//use of it
         homePage.clickOnSignInBtn(); //kha se aya bhi tu???
-        customerLoginPage.login(prop.getProperty("email"),prop.getProperty("pass"));
+        customerLoginPage.login(prop.getProperty("username"),prop.getProperty("password"));
         softAssert.assertEquals(myAccountPage.textOfElement(),"Welcome, lakshya sharma!","title must match for element1");
         softAssert.assertEquals(myAccountPage.textOfElement2(),"My Account","title must match for element2");
         softAssert.assertAll();
@@ -43,7 +43,7 @@ public class CustomerLoginTest extends WebTest {
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         Thread.sleep(5000);
-        driver.close();
+        //driver.close();
     }
 
 
