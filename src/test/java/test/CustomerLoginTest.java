@@ -32,7 +32,7 @@ public class CustomerLoginTest extends WebTest {
         SoftAssert softAssert = new SoftAssert();//use of it
         homePage.clickOnSignInBtn(); //kha se aya bhi tu???
         customerLoginPage.login(prop.getProperty("username"),prop.getProperty("password"));
-        softAssert.assertEquals(myAccountPage.textOfElement(),"Welcome, lakshya sharma!","title must match for element1");
+        softAssert.assertEquals(myAccountPage.textOfElement(),"Welcome, lakshya sharma!","title must match for element");
         softAssert.assertEquals(myAccountPage.textOfElement2(),"My Account","title must match for element2");
         softAssert.assertAll();
     }
@@ -45,10 +45,4 @@ public class CustomerLoginTest extends WebTest {
         Thread.sleep(5000);
         //driver.close();
     }
-
-
-
-
-
-
 }
